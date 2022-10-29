@@ -1,5 +1,4 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
-
 export class CreateRentals1666831364932 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
@@ -29,7 +28,8 @@ export class CreateRentals1666831364932 implements MigrationInterface {
                     },
                     {
                         name: "created_at",
-                        type: "date",
+                        type: "timestamp",
+                        default: "now()",
                     },
                     {
                         name: "updated_at",
@@ -41,6 +41,7 @@ export class CreateRentals1666831364932 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable("rentals");
     }
 
 }
