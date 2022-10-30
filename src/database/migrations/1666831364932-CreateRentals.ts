@@ -1,3 +1,5 @@
+// importar a função
+
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 export class CreateRentals1666831364932 implements MigrationInterface {
     public async up(queryRunner: QueryRunner): Promise<void> {
@@ -33,7 +35,8 @@ export class CreateRentals1666831364932 implements MigrationInterface {
                     },
                     {
                         name: "updated_at",
-                        type: "date",
+                        type: "timestamp",
+                        default: "now()",
                     },
                 ],
             })
@@ -43,5 +46,4 @@ export class CreateRentals1666831364932 implements MigrationInterface {
     public async down(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.dropTable("rentals");
     }
-
 }
