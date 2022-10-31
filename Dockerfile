@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 #informando porta de trabalho do meu projeto
-EXPOSE 3333
+EXPOSE 9000
 
 #executar comando yarn dev
 CMD ["npm", "run", "dev"]
